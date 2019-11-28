@@ -1,0 +1,10 @@
+<form action="" id="mainForm">
+  <div>
+      <input type="text" name="CityField"  class="filed" placeholder="Lviv" #cityNameInput><br>
+  </div>
+  <div>
+      <input type="button" value="Search" class="buttonOfForm" (click)="sendRequestToApi(cityNameInput.value)">
+      <input type="reset" value="Clear" class="buttonOfForm">
+  </div>
+
+</form>

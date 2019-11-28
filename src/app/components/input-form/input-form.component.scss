@@ -1,0 +1,56 @@
+form {
+  margin-top: 4vh;
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+
+  .filed{
+    margin: 10px;
+    font-family: 'Lexend Tera', sans-serif;
+    border: 3px solid black;
+    background-color: rgba(214, 214, 175, 0);
+    font-size: 20px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+
+    @media (max-width: 600px)
+    {
+         font-size: 15px;
+    }
+
+    @media (max-width: 350px)
+    {
+        font-size: 12px;
+    }
+
+   }
+
+   .buttonOfForm {
+    color: black;
+   font-family: 'Lexend Tera', sans-serif;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 5px 15px 5px 15px;
+    border-radius: 7px;
+    margin: 10px 10px 0 0;
+    border: 3px solid black;
+    cursor: pointer;
+
+  }
+
+  .buttonOfForm:hover{
+   background-color: rgba(148, 146, 146, 0.322);
+  }
+
+  .buttonOfForm:active{
+   background-color: rgb(100, 100, 100);
+   border-color: white;
+   color: white;
+  }
+
+
+}
+
+
+
+

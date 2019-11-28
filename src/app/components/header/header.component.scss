@@ -1,0 +1,54 @@
+%lexend-font {
+  font-family: 'Lexend Tera', sans-serif;
+}
+
+%rubi-font {
+  font-family: 'Rubik Mono One', sans-serif;
+}
+
+.divHeader {
+  background-color: rgb(54, 107, 107);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .headerText{
+    position: inherit;
+    padding: 1.5%;
+    color: rgb(255, 255, 255);
+    font-size:35px;
+
+    #textOne{
+      @extend %rubi-font;
+    }
+
+    #textWeather{
+      @extend %lexend-font;
+    }
+
+  }
+
+  .cityInHeader{
+    @extend %lexend-font;
+    color: rgb(255, 255, 255);
+    margin-right: 15px;
+  }
+}
+
+@media (max-width:  600px){
+  #textWeather{
+      font-size:25px;
+  }
+
+  #textOne{
+    font-size: 25px;
+  }
+
+  #headerText{
+  padding: 5px;
+  }
+}
+
+
+
