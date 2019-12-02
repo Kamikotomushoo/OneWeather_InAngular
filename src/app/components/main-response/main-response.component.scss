@@ -30,7 +30,7 @@ div.mainContent {
            font-size: 20px;
        }
 
-       #merticF{
+       sup{
         font-size:2vw;
 
         @media (max-width: 600px){
@@ -40,7 +40,6 @@ div.mainContent {
     }
 
     .cityName {
-      word-wrap: break-word;
       line-height: 110px;
 
       @media (max-width: 600px){
