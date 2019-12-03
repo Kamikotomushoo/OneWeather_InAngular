@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherApiService } from '../../services/weather-api.service';
-import {WeatherContext} from '../../interfaces/weather-context';
+import {WeatherContext, IWeatherContext} from '../../interfaces/weather-context';
 
 
 @Component({
@@ -16,18 +16,19 @@ export class InputFormComponent implements OnInit {
     this.onLoad();
   }
 
-
   private onLoad(){
     this.weatherApiService.getWeather('Lviv')
     .subscribe(responseData => {
       let d = responseData as any;
-      let cntx  = new  WeatherContext(d.weather[0].main,
-                              d.main.temp,
-                              d.name,
-                              d.sys.country,
-                              d.main.humidity,
-                              d.wind.speed,
-                              d.main.pressure);
+
+      let cntx: IWeatherContext  = { mainWeather: d.weather[0].main,
+        temperature: d.main.temp,
+        cityName: d.name,
+        countryName: d.sys.country,
+        humidity: d.main.humidity,
+        windSpeed: d.wind.speed,
+        pressure: d.main.pressure
+      };
 
       this.weatherApiService.weatherResponse.next(cntx);
       this.weatherApiService.cityInHeader.next('Lviv');
@@ -43,16 +44,16 @@ export class InputFormComponent implements OnInit {
     this.weatherApiService.getWeather(cityName)
     .subscribe(responseData => {
       let d = responseData as any;
-      let cntx  = new  WeatherContext(d.weather[0].main,
-                              d.main.temp,
-                              d.name,
-                              d.sys.country,
-                              d.main.humidity,
-                              d.wind.speed,
-                              d.main.pressure);
-
+      let cntx: IWeatherContext  = { mainWeather: d.weather[0].main,
+        temperature: d.main.temp,
+        cityName: d.name,
+        countryName: d.sys.country,
+        humidity: d.main.humidity,
+        windSpeed: d.wind.speed,
+        pressure: d.main.pressure
+      };
       this.weatherApiService.weatherResponse.next(cntx);
-      this.weatherApiService.cityInHeader.next(cityName);
+      this.weatherApiService.cityInHeader.next(cntx.cityName);
     },
     error =>{
       alert('This city does not exist!');

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherApiService } from '../../services/weather-api.service';
-import {WeatherContext} from '../../interfaces/weather-context';
+import {WeatherContext, IWeatherContext} from '../../interfaces/weather-context';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {WeatherContext} from '../../interfaces/weather-context';
 })
 export class MainResponseComponent implements OnInit {
 
-  mainForecast : string = "Clear";
+  mainForecast : string = "Snow";
   tempreC: string = '1.2';
   temperF: string = '32';
   cityName : string = "Lviv";
@@ -18,12 +18,12 @@ export class MainResponseComponent implements OnInit {
   humidity: number = 90;
   windSpeed: number = 5;
   pressure: number = 1024;
-  test: WeatherContext;
+  test: IWeatherContext;
 
 
   constructor(private weatherApiService: WeatherApiService) {
     this.weatherApiService.weatherResponse.subscribe(
-      (wthr: WeatherContext) => {
+      (wthr: IWeatherContext) => {
         this.test = wthr;
 
         this.mainForecast = wthr.mainWeather == 'Fog' ? 'Mist' : wthr.mainWeather ,
