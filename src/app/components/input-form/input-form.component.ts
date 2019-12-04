@@ -55,9 +55,11 @@ export class InputFormComponent implements OnInit {
       this.weatherApiService.weatherResponse.next(cntx);
       this.weatherApiService.cityInHeader.next(cntx.cityName);
     },
-    error =>{
+    error => {
       alert('This city does not exist!');
       this.weatherApiService.cityInHeader.next('');
+      // this.weatherApiService.weatherResponse.next(cntx);
+
     });
 
   }

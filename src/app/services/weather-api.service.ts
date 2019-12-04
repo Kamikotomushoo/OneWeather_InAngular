@@ -14,9 +14,14 @@ export class WeatherApiService {
 
   getWeather(cityName: string)
   {
+    try {
+      var returnObserveble = this.http.get(environment.apiUrl + '/weather?q='
+      + cityName + '&appid=5d60c80406f8941039d85837e08019a1');
 
-     return this.http.get(environment.apiUrl + '/weather?q='
-     + cityName + '&appid=5d60c80406f8941039d85837e08019a1');
+      return returnObserveble;
+    } catch {
+      return null;
+    }
 
   }
 }

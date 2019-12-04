@@ -30,6 +30,9 @@ export class MainResponseComponent implements OnInit {
         this.tempreC = (wthr.temperature - 273).toFixed(1),
         this.temperF = (((wthr.temperature - 273) * (9/5)) + 32 ).toFixed(0)
 
+      },
+      error => {
+
       }
     );
   }
