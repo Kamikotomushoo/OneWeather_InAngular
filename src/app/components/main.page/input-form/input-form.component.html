@@ -1,0 +1,28 @@
+<div class="bck-btn">
+  <input class="back-button" type="button" routerLink="/" value="Go Back">
+</div>
+<form id="mainForm" [formGroup]="inputForm" (ngSubmit)="OnSubmit()">
+  <div>
+      <input
+      type="text"
+      name="CityField"
+      class="filed"
+      placeholder="Lviv"
+      formControlName="cityField">
+      <br>
+  </div>
+  <div>
+    <span
+    *ngIf="!inputForm.get('cityField').valid && inputForm.get('cityField').touched"
+    class="help-block">Please enter the city</span>
+  </div>
+  <div>
+      <input
+      type="submit"
+      value="Search"
+      class="buttonOfForm"
+      [disabled]="!inputForm.get('cityField').valid && inputForm.get('cityField').touched">
+      <!-- (click)="sendRequestToApi(cityNameInput.value)"> -->
+      <!-- <input type="reset" value="Clear" class="buttonOfForm"> -->
+  </div>
+</form>

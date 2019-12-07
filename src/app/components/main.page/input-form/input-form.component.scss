@@ -1,3 +1,33 @@
+.bck-btn{
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px 0 0 20px;
+  .back-button {
+
+    color: black;
+    font-family: 'Lexend Tera', sans-serif;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 7px 15px 7px 20px;
+    border-radius: 7px;
+    margin: 10px 10px 0 0;
+    border: 3px solid black;
+    cursor: pointer;
+
+  }
+
+  .back-button:hover{
+   background-color: rgba(148, 146, 146, 0.322);
+  }
+
+  .back-button:active{
+   background-color: rgb(100, 100, 100);
+   border-color: white;
+   color: white;
+  }
+}
+
+
+
 form {
   margin-top: 4vh;
   display: flex;
@@ -14,6 +44,7 @@ form {
     border-right-style: hidden;
     border-left-style: hidden;
 
+
     @media (max-width: 600px)
     {
          font-size: 15px;
@@ -25,10 +56,13 @@ form {
     }
 
    }
-
+   .help-block{
+    color: black;
+    font-family: 'Lexend Tera', sans-serif;
+   }
    .buttonOfForm {
     color: black;
-   font-family: 'Lexend Tera', sans-serif;
+    font-family: 'Lexend Tera', sans-serif;
     background-color: rgba(255, 255, 255, 0);
     padding: 5px 15px 5px 15px;
     border-radius: 7px;
@@ -50,6 +84,7 @@ form {
 
 
 }
+
 
 
 

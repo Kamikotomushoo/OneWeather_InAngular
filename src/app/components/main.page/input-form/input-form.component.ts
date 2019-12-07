@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherApiService } from '../../services/weather-api.service';
-import {WeatherContext, IWeatherContext} from '../../interfaces/weather-context';
+import { WeatherApiService } from '../../../services/weather-api.service';
+import {WeatherContext, IWeatherContext} from '../../../interfaces/weather-context';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,9 +11,15 @@ import {WeatherContext, IWeatherContext} from '../../interfaces/weather-context'
 })
 export class InputFormComponent implements OnInit {
 
+  inputForm: FormGroup;
+
   constructor(private weatherApiService: WeatherApiService) { }
 
   ngOnInit() {
+    this.inputForm = new FormGroup({
+      'cityField': new FormControl(null, [Validators.required]),
+      // 'setButton': new FormControl()
+    });
     this.onLoad();
   }
 
@@ -39,9 +46,8 @@ export class InputFormComponent implements OnInit {
     });
   }
 
-  sendRequestToApi(cityName: string)
-  {
-    this.weatherApiService.getWeather(cityName)
+  OnSubmit(){
+    this.weatherApiService.getWeather(this.inputForm.get('cityField').value)
     .subscribe(responseData => {
       let d = responseData as any;
       let cntx: IWeatherContext  = { mainWeather: d.weather[0].main,
@@ -61,7 +67,30 @@ export class InputFormComponent implements OnInit {
       // this.weatherApiService.weatherResponse.next(cntx);
 
     });
-
   }
+  // sendRequestToApi(cityName: string)
+  // {
+  //   this.weatherApiService.getWeather(cityName)
+  //   .subscribe(responseData => {
+  //     let d = responseData as any;
+  //     let cntx: IWeatherContext  = { mainWeather: d.weather[0].main,
+  //       temperature: d.main.temp,
+  //       cityName: d.name,
+  //       countryName: d.sys.country,
+  //       humidity: d.main.humidity,
+  //       windSpeed: d.wind.speed,
+  //       pressure: d.main.pressure
+  //     };
+  //     this.weatherApiService.weatherResponse.next(cntx);
+  //     this.weatherApiService.cityInHeader.next(cntx.cityName);
+  //   },
+  //   error => {
+  //     alert('This city does not exist!');
+  //     this.weatherApiService.cityInHeader.next('');
+  //     // this.weatherApiService.weatherResponse.next(cntx);
+
+  //   });
+
+  // }
 
 }

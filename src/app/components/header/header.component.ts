@@ -9,7 +9,7 @@ import { WeatherApiService } from '../../services/weather-api.service';
 })
 export class HeaderComponent implements OnInit {
 
-  City : string  = "None";
+  City : string  = '';
   constructor(private weatherApiService: WeatherApiService) {
     this.weatherApiService.cityInHeader.subscribe(
       (cityName : string) => this.City = cityName

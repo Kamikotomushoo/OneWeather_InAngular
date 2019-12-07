@@ -1,0 +1,73 @@
+%lexend-font {
+  font-family: 'Lexend Tera', sans-serif;
+}
+
+%rubi-font {
+  font-family: 'Rubik Mono One', sans-serif;
+}
+
+.main {
+  padding: 1.5%;
+  color: rgb(49, 48, 48);
+  font-size: 7.5vw;
+  height: calc(100vh - 51px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+   .welcome-text{
+    margin-bottom:2vw ;
+    // display: flex;
+    // align-items: center;
+    flex-wrap: wrap;
+     .textOne{
+      flex-wrap: wrap;
+      // flex-flow: wrap column;
+       @extend %rubi-font;
+     }
+
+     .textWeather{
+      flex-wrap: wrap;
+       @extend %lexend-font;
+     }
+
+     @media(max-width: 450px){
+        font-size:45px;
+    }
+   }
+
+
+  .introduce-text{
+    @extend %lexend-font;
+    margin: 15px 0 10px 0;
+    font-size: 2vw;
+    flex-wrap: wrap;
+    @media(max-width: 450px){
+      font-size:20px;
+  }
+  }
+
+  .entry-button{
+
+      outline: none;
+      @extend %lexend-font;
+      font-size: 30px;
+      background-color: rgba(255, 255, 255, 0);
+      padding: 8px 15px 13px 15px;
+      border-radius: 7px;
+      margin: 10px 10px 0 0;
+      border: 3px solid rgb(49, 48, 48);
+      cursor: pointer;
+
+  }
+  .entry-button:hover{
+    background-color: rgba(148, 146, 146, 0.322);
+   }
+
+   .entry-button:active{
+    background-color: rgb(100, 100, 100);
+    border-color: white;
+    color: white;
+   }
+}

@@ -14,16 +14,16 @@
   flex-wrap: wrap;
 
   .headerText{
-    position: inherit;
+    // position: inherit;
     padding: 1.5%;
     color: rgb(255, 255, 255);
     font-size:35px;
 
-    #textOne{
+    .textOne{
       @extend %rubi-font;
     }
 
-    #textWeather{
+    .textWeather{
       @extend %lexend-font;
     }
 
@@ -37,15 +37,15 @@
 }
 
 @media (max-width:  600px){
-  #textWeather{
+  .textWeather{
       font-size:25px;
   }
 
-  #textOne{
+  .textOne{
     font-size: 25px;
   }
 
-  #headerText{
+  .headerText{
   padding: 5px;
   }
 }
