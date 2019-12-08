@@ -13,6 +13,7 @@ import { WelcomePageComponent } from './components/welcome.page/welcome-page/wel
 import { MainPageComponent } from './components/main.page/main-page.component';
 import { NotFoundComponent } from './components/not-found.page/not-found/not-found.component';
 
+
 const appRoutes: Routes = [
   {path: '', component: WelcomePageComponent},
   {path: 'oneweather', component: MainPageComponent},

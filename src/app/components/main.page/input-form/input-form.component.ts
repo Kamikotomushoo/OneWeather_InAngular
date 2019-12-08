@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherApiService } from '../../../services/weather-api.service';
 import {IWeatherContext} from '../../../interfaces/weather-context';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NumContainsValidator } from '../../../validators/number-contains-checker';
+
 
 
 @Component({
@@ -12,12 +14,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class InputFormComponent implements OnInit {
 
   inputForm: FormGroup;
+  regex: RegExp = /[0-9]/;
 
   constructor(private weatherApiService: WeatherApiService) { }
 
   ngOnInit() {
     this.inputForm = new FormGroup({
-      'cityField': new FormControl(null, [Validators.required])
+      'cityField': new FormControl(null, [Validators.required, NumContainsValidator.bind(this)])
     });
     this.onLoad();
   }
@@ -40,7 +43,6 @@ export class InputFormComponent implements OnInit {
       this.weatherApiService.cityInHeader.next('Lviv');
     },
     error =>{
-      alert('This city does not exist!');
       this.weatherApiService.cityInHeader.next('');
     });
   }
@@ -61,10 +63,19 @@ export class InputFormComponent implements OnInit {
       this.weatherApiService.cityInHeader.next(cntx.cityName);
     },
     error => {
-      alert('This city does not exist!');
       this.weatherApiService.cityInHeader.next('');
       let doesntExistCity: IWeatherContext = { cityName: 'This city does not exist!'};
       this.weatherApiService.weatherResponse.next(doesntExistCity);
     });
   }
+
+  // OnlyLetters2(control: FormControl): {[s: string]: boolean} {
+  //   let text: string = control.value;
+  //   var isContains =  this.regex.test(text);
+  //   if(isContains)
+  //   {
+  //     return { 'containsNumbers' : true };
+  //   }
+  //   return null;
+  // }
 }
