@@ -1,13 +1,13 @@
 <div class="mainContent">
     <div class="mainText">
-        <strong>{{tempreC}}<sup class="cORf">C</sup>
+        <strong *ngIf="exist">{{tempreC}}<sup class="cORf">C</sup>
           <sub class="cORf">{{temperF}}<sup>F</sup></sub></strong>
-       <strong class="cityName">{{test.cityName}}<sub class="cORf">{{test.countryName}}</sub></strong>
+       <strong class="cityName">{{weatherInfo.cityName}}<sub class="cORf" *ngIf="exist">{{weatherInfo.countryName}}</sub></strong>
     </div>
-    <div class="details" >
-        <strong><img class="imagesBox" src="../../assets/img/{{mainForecast }}.png">{{test.mainWeather}}</strong>
-        <strong><img class="imagesBox" src="../../assets/img/waterDrop.png\"> {{test.humidity}}%</strong>
-        <strong><img class="imagesBox" src="../../assets/img/wind.png\">{{test.windSpeed}}m/s </strong>
-        <strong><img class="imagesBox" src="../../assets/img/pressure.png\">{{test.pressure}}hpa</strong>
+    <div class="details" *ngIf="exist">
+        <strong><img class="imagesBox" src="../../assets/img/{{mainForecast }}.png">{{weatherInfo.mainWeather}}</strong>
+        <strong><img class="imagesBox" src="../../assets/img/waterDrop.png\"> {{weatherInfo.humidity}}%</strong>
+        <strong><img class="imagesBox" src="../../assets/img/wind.png\">{{weatherInfo.windSpeed}}m/s </strong>
+        <strong><img class="imagesBox" src="../../assets/img/pressure.png\">{{weatherInfo.pressure}}hpa</strong>
     </div>
 </div>
