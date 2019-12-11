@@ -12,10 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { WelcomePageComponent } from './components/welcome.page/welcome-page/welcome-page.component';
 import { MainPageComponent } from './components/main.page/main-page.component';
 import { NotFoundComponent } from './components/not-found.page/not-found/not-found.component';
+import { LoginUpComponent } from './components/login-in.page/login-up/login-up.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: WelcomePageComponent},
+  {path: 'loginin', component: LoginUpComponent},
   {path: 'oneweather', component: MainPageComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', component: NotFoundComponent},
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     MainResponseComponent,
     WelcomePageComponent,
     MainPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginUpComponent
   ],
   imports: [
     BrowserModule,

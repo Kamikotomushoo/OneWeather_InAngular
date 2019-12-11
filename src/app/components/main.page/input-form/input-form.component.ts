@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WeatherApiService } from '../../../services/weather-api.service';
 import {IWeatherContext} from '../../../interfaces/weather-context';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -11,7 +11,7 @@ import { NumContainsValidator } from '../../../validators/number-contains-checke
   templateUrl: './input-form.component.html',
   styleUrls: ['./input-form.component.scss']
 })
-export class InputFormComponent implements OnInit {
+export class InputFormComponent implements OnInit , OnDestroy {
 
   inputForm: FormGroup;
   regex: RegExp = /[0-9]/;
@@ -68,14 +68,8 @@ export class InputFormComponent implements OnInit {
       this.weatherApiService.weatherResponse.next(doesntExistCity);
     });
   }
-
-  // OnlyLetters2(control: FormControl): {[s: string]: boolean} {
-  //   let text: string = control.value;
-  //   var isContains =  this.regex.test(text);
-  //   if(isContains)
-  //   {
-  //     return { 'containsNumbers' : true };
-  //   }
-  //   return null;
-  // }
+  ngOnDestroy(){
+    this.weatherApiService.cityInHeader.next('');
+  }
+  
 }

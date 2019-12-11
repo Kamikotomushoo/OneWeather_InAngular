@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherApiService } from '../../services/weather-api.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,13 +11,17 @@ import { WeatherApiService } from '../../services/weather-api.service';
 export class HeaderComponent implements OnInit {
 
   City : string  = '';
-  constructor(private weatherApiService: WeatherApiService) {
+  constructor(private weatherApiService: WeatherApiService, private router: Router) {
     this.weatherApiService.cityInHeader.subscribe(
       (cityName : string) => this.City = cityName
     );
    }
 
   ngOnInit() {
+  }
+
+  backToMain(){
+    this.router.navigate(['/']);
   }
 
 }
